@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { addRow } from "./db";
 import "./JudgingRubric.css";
 
 const App = () => {
   const [teamName, setTeamName] = useState("");
-  const [judgeName, setJudgeName] = useState("UNK");
+  // const [judgeName, setJudgeName] = useState("UNK");
+  const judgeName = "UNK";
   const [ratings, setRatings] = useState({
     q1: 0,
     q2: 0,
