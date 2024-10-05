@@ -44,8 +44,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload dist repository
-          path: "./dist"
+          # Change this to point to the correct build directory
+          path: "./build" # Update from "./dist" to "./build"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
