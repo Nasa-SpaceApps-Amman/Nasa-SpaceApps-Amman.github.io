@@ -37,24 +37,28 @@ const App = () => {
 
     // Call the addRow function to insert form data into the Supabase table
     await addRow(
-      teamName,                    // teamName
-      judgeName,                   // judge's name from props
-      ratings.q1,                  // impact score
-      ratings.q2,                  // creativity score
-      ratings.q6,                  // validity score
-      ratings.q10,                 // relevance score
-      ratings.q5,                  // presentation score
-      recommendForStrategy,        // strategy boolean (checkbox)
-      notes                        // strategyBox (optional notes)
+      teamName, // teamName
+      judgeName, // judge's name from props
+      ratings.q1, // impact score
+      ratings.q2, // creativity score
+      ratings.q6, // validity score
+      ratings.q10, // relevance score
+      ratings.q5, // presentation score
+      recommendForStrategy, // strategy boolean (checkbox)
+      notes // strategyBox (optional notes)
     );
 
     // Optionally clear the form after submission
-    setTeamName('');
+    setTeamName("");
     setRatings({
-      q1: '', q2: '', q6: '', q10: '', q5: ''
+      q1: "",
+      q2: "",
+      q6: "",
+      q10: "",
+      q5: "",
     });
     setRecommendForStrategy(false);
-    setNotes('');
+    setNotes("");
   };
 
   return (
@@ -63,7 +67,7 @@ const App = () => {
 
       <div className="team-judge-info">
         <div>
-          <label htmlFor="teamName">Team Name:</label>
+          <label htmlFor="teamName">Team Name: </label>
           <input
             id="teamName"
             type="text"
@@ -73,7 +77,7 @@ const App = () => {
           />
         </div>
         <div>
-          <label>Judge's Name:</label>
+          <label>Judge's Name: </label>
           <span className="judge-name">{judgeName}</span>
         </div>
       </div>
@@ -83,13 +87,13 @@ const App = () => {
         <h3>Impact</h3>
         <div>
           <div className="question">
-            <span>1.</span>How much impact can this project have?
+            <span>1. </span>How much impact can this project have?
           </div>
           <div className="question">
-            <span>2.</span> Does it solve a big problem or a little problem?
+            <span>2. </span> Does it solve a big problem or a little problem?
           </div>
           <div className="question">
-            <span>3.</span> Will it inspire or help many, or a few?
+            <span>3. </span> Will it inspire or help many, or a few?
           </div>
         </div>
         <input
@@ -107,10 +111,17 @@ const App = () => {
         <h3>Creativity</h3>
         <div>
           <div className="question">
-            <span>1. Originality and Novelty: </span> Does the project introduce something entirely new, or is it built upon existing ideas? How fresh and innovative are the concepts? Does it push boundaries or offer a unique perspective?
+            <span>1. Originality and Novelty: </span> Does the project introduce
+            something entirely new, or is it built upon existing ideas? How
+            fresh and innovative are the concepts? Does it push boundaries or
+            offer a unique perspective?
           </div>
           <div className="question">
-            <span>2. Creative Approach and Thinking:</span> Are unconventional methods used to solve the problem? Does the project demonstrate innovative problem-solving or fresh ideas that stand out from typical approaches? How well does it balance improvement and innovation?
+            <span>2. Creative Approach and Thinking:</span> Are unconventional
+            methods used to solve the problem? Does the project demonstrate
+            innovative problem-solving or fresh ideas that stand out from
+            typical approaches? How well does it balance improvement and
+            innovation?
           </div>
         </div>
         <input
@@ -167,7 +178,8 @@ const App = () => {
             <span>4. Technical feasibility: </span> Is it technically feasible?
           </div>
           <div className="question">
-            <span>5. Completeness:</span> Is it a complete solution or does it have a long way to go?
+            <span>5. Completeness:</span> Is it a complete solution or does it
+            have a long way to go?
           </div>
         </div>
         <input
@@ -185,7 +197,8 @@ const App = () => {
         <h3>Presentation</h3>
         <div>
           <div className="question">
-            <span>1. storytelling:</span> Were they effective in telling the story of the project: the challenge, the solution?
+            <span>1. storytelling:</span> Were they effective in telling the
+            story of the project: the challenge, the solution?
           </div>
           <div className="question">
             <span>2. Visual Appeal:</span> Is the presentation attractive?
@@ -215,13 +228,18 @@ const App = () => {
       <div className="strategy-section">
         <h3>Best Strategy Award</h3>
         <p>
-          1. Problem Analysis: How well did the team analyze the problem before starting their solution? Did they clearly define the challenge and identify key requirements? Did their approach clearly demonstrate how they intended to solve the problem?
+          1. Problem Analysis: How well did the team analyze the problem before
+          starting their solution? Did they clearly define the challenge and
+          identify key requirements? Did their approach clearly demonstrate how
+          they intended to solve the problem?
         </p>
         <p>
-          2. Team Roles: How effectively were roles assigned? Was there a clear task distribution and good collaboration?
+          2. Team Roles: How effectively were roles assigned? Was there a clear
+          task distribution and good collaboration?
         </p>
         <p>
-          3. Research and Data: How well did the team use research and integrate NASA data or other sources into their solution?
+          3. Research and Data: How well did the team use research and integrate
+          NASA data or other sources into their solution?
         </p>
 
         <div>
