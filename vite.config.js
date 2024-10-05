@@ -3,5 +3,5 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/Nasa-SpaceApps-Amman.github.io/", // Make sure this matches your GitHub Pages URL
 });
