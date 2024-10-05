@@ -30,22 +30,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: "yarn"
+
       - name: Install dependencies
         run: yarn install
+
       - name: Build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }} # Pass the secret as an environment variable
+          VITE_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }} # Pass the secret as an environment variable
         run: yarn build
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Change this to point to the correct build directory
           path: "./build" # Update from "./dist" to "./build"
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
