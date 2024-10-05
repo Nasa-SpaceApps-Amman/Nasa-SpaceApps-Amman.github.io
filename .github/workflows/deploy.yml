@@ -2,26 +2,20 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -42,8 +36,8 @@ jobs:
 
       - name: Build
         env:
-          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }} # Pass the secret as an environment variable
-          VITE_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }} # Pass the secret as an environment variable
+          VITE_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          VITE_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: yarn build
 
       - name: Setup Pages
@@ -53,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Change this to point to the correct build directory
-          path: "./build" # Update from "./dist" to "./build"
+          path: "./dist" # Use ./dist instead of ./build
 
       - name: Deploy to GitHub Pages
         id: deployment
