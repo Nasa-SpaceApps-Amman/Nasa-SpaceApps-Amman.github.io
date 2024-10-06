@@ -13,6 +13,9 @@ const JudgingRubric = () => {
     q6: 0,
     q10: 0,
     q5: 0,
+    strategy:0,
+    junior:0,
+    creativityAward:0,
   });
 
   const location = useLocation();
@@ -264,12 +267,12 @@ const JudgingRubric = () => {
           </label>
                   <input
           type="number"
-          name="q5"
+          name="strategy"
           value={ratings.strategy}
           min="0"
           max="50"
           onChange={handleRatingChange}
-          required
+          
         />
         </div>
         <div>
@@ -278,12 +281,12 @@ const JudgingRubric = () => {
           </label>
                   <input
           type="number"
-          name="q5"
+          name="junior"
           value={ratings.junior}
           min="0"
           max="50"
           onChange={handleRatingChange}
-          required
+          
         />
         </div>
 
@@ -293,12 +296,12 @@ const JudgingRubric = () => {
           </label>
                   <input
           type="number"
-          name="q5"
+          name="creativityAward"
           value={ratings.creativityAward}
           min="0"
           max="50"
           onChange={handleRatingChange}
-          required
+          
         />
         </div>
         
