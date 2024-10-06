@@ -8,11 +8,12 @@ const JudgingRubric = () => {
     const [panel, setPanel] = useState("");
   const [judgeName, setJudgeName] = useState("");
   const [ratings, setRatings] = useState({
-    q1: 0,
-    q2: 0,
-    q6: 0,
-    q10: 0,
-    q5: 0,
+    strategy:0,
+    junior:0,
+    creativityAward:0,
+  });
+
+    const [awards, setAwards] = useState({
     strategy:0,
     junior:0,
     creativityAward:0,
@@ -35,6 +36,15 @@ const JudgingRubric = () => {
     }));
   };
 
+    const handleAwardsChange = (e) => {
+    const { name, value } = e.target;
+    const validValue = Math.min(Math.max(Number(value), 1), 50);
+    setAwards((prevAwards) => ({
+      ...prevAwards,
+      [name]: validValue,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,9 +57,9 @@ const JudgingRubric = () => {
       ratings.q6, // validity score
       ratings.q10, // relevance score
       ratings.q5, // presentation score
-            ratings.strategy, // presentation score
-                        ratings.junior,
-            ratings.creativityAward,
+            awards.strategy, // presentation score
+                        awards.junior,
+            awards.creativityAward,
        panel,     
 
     );
@@ -268,10 +278,10 @@ const JudgingRubric = () => {
                   <input
           type="number"
           name="strategy"
-          value={ratings.strategy}
+          value={awards.strategy}
           min="0"
           max="50"
-          onChange={handleRatingChange}
+          onChange={handleAwardsChange}
           
         />
         </div>
@@ -282,10 +292,10 @@ const JudgingRubric = () => {
                   <input
           type="number"
           name="junior"
-          value={ratings.junior}
+          value={awards.junior}
           min="0"
           max="50"
-          onChange={handleRatingChange}
+          onChange={handleAwardsChange}
           
         />
         </div>
@@ -297,10 +307,9 @@ const JudgingRubric = () => {
                   <input
           type="number"
           name="creativityAward"
-          value={ratings.creativityAward}
-          min="0"
-          max="50"
-          onChange={handleRatingChange}
+          value={awards.creativityAward}
+
+          onChange={handleAwardsChange}
           
         />
         </div>
