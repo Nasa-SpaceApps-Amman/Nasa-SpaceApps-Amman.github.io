@@ -1,7 +1,6 @@
 /* General styles */
 * {
-  margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
 }
 
@@ -22,6 +21,7 @@ header nav {
   justify-content: center;
   /* Center the navigation */
   padding: 20px 0;
+  color:#ffffff;
 }
 
 header nav ul {

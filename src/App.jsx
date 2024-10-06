@@ -7,7 +7,6 @@ import Home from './Home.jsx';
 
 const App = () => {
   return (
-    <div className="App">
       <div className="App">
         {/* Header */}
         <header className="app-header">
@@ -34,15 +33,13 @@ const App = () => {
           <p className="footer-text">
             Copyright © 2024{" "}
             <span className="company-name">Astrotech Club</span> | Powered By{" "}
-            <span className="powered-by">AstraCore Technologies</span>
           </p>
           <p className="designer-text">
-            <span className="designer-name">Sanad Abujaber & Omar Malkawi</span>{" "}
-            تصميم وتطوير
+            Developed by 
+            <span className="designer-name">Omar Malkawi</span>{" "}
           </p>
         </footer>
       </div>
-    </div>
   );
 };
 

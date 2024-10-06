@@ -5,6 +5,7 @@ import "./JudgingRubric.css";
 
 const JudgingRubric = () => {
   const [teamName, setTeamName] = useState("");
+    const [panel, setPanel] = useState("");
   const [judgeName, setJudgeName] = useState("");
   const [ratings, setRatings] = useState({
     q1: 0,
@@ -13,8 +14,6 @@ const JudgingRubric = () => {
     q10: 0,
     q5: 0,
   });
-  const [recommendForStrategy, setRecommendForStrategy] = useState(false);
-  const [notes, setNotes] = useState(""); // Added state for notes
 
   const location = useLocation();
 
@@ -45,8 +44,11 @@ const JudgingRubric = () => {
       ratings.q6, // validity score
       ratings.q10, // relevance score
       ratings.q5, // presentation score
-      recommendForStrategy, // strategy boolean (checkbox)
-      notes // strategyBox (optional notes)
+            ratings.strategy, // presentation score
+                        ratings.junior,
+            ratings.creativityAward,
+       panel,     
+
     );
 
     // Optionally clear the form after submission
@@ -57,9 +59,11 @@ const JudgingRubric = () => {
       q6: "",
       q10: "",
       q5: "",
+      strategy: "",
+      junior: "",
+      creativityAward: "",
     });
-    setRecommendForStrategy(false);
-    setNotes("");
+
   };
 
   return (
@@ -74,6 +78,16 @@ const JudgingRubric = () => {
             type="text"
             value={teamName}
             onChange={(e) => setTeamName(e.target.value)}
+            required
+          />
+        </div>
+                <div>
+          <label htmlFor="teamName">Panel ID: </label>
+          <input
+            id="teamName"
+            type="text"
+            value={panel}
+            onChange={(e) => setPanel(e.target.value)}
             required
           />
         </div>
@@ -226,45 +240,69 @@ const JudgingRubric = () => {
       </div>
 
       {/* Best Strategy Award Section */}
-      <div className="strategy-section">
+      <div className="rating-section">
         <h3>Best Strategy Award</h3>
-        <p>
+        <p className="question">
           1. Problem Analysis: How well did the team analyze the problem before
           starting their solution? Did they clearly define the challenge and
           identify key requirements? Did their approach clearly demonstrate how
           they intended to solve the problem?
         </p>
-        <p>
+        <p className="question">
           2. Team Roles: How effectively were roles assigned? Was there a clear
           task distribution and good collaboration?
         </p>
-        <p>
+        <p className="question">
           3. Research and Data: How well did the team use research and integrate
           NASA data or other sources into their solution?
         </p>
 
         <div>
+
           <label htmlFor="recommendForStrategy">
             Recommend for Best Strategy Award:
           </label>
-          <input
-            type="checkbox"
-            id="recommendForStrategy"
-            checked={recommendForStrategy}
-            onChange={(e) => setRecommendForStrategy(e.target.checked)}
-          />
+                  <input
+          type="number"
+          name="q5"
+          value={ratings.strategy}
+          min="0"
+          max="50"
+          onChange={handleRatingChange}
+          required
+        />
+        </div>
+        <div>
+          <label htmlFor="recommendForJunior">
+            Recommend for Best Junior Award:
+          </label>
+                  <input
+          type="number"
+          name="q5"
+          value={ratings.junior}
+          min="0"
+          max="50"
+          onChange={handleRatingChange}
+          required
+        />
         </div>
 
-        {/* Text Box for Notes */}
-        <div>
-          <label htmlFor="notes">Strategy BOX (optional):</label>
-          <textarea
-            id="notes"
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Enter any additional notes here"
-          />
+                <div>
+          <label htmlFor="recommendForCreativity">
+            Recommend for Best Creativity Award:
+          </label>
+                  <input
+          type="number"
+          name="q5"
+          value={ratings.creativityAward}
+          min="0"
+          max="50"
+          onChange={handleRatingChange}
+          required
+        />
         </div>
+        
+
       </div>
 
       {/* Submit Button */}

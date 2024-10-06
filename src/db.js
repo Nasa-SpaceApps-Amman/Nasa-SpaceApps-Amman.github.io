@@ -1,8 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 // Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabaseUrl = "https://dszrfthmbdvilgafevod.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRzenJmdGhtYmR2aWxnYWZldm9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjgwODA2NDMsImV4cCI6MjA0MzY1NjY0M30.1igl3OAY9TXVu5NuNdwHuD7xmcJEBtW5QqShBGUSfDE";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Reusable function to insert data
@@ -15,7 +15,9 @@ export async function addRow(
   relevance,
   presentation,
   strategy,
-  strategyBox
+  junior,
+  creativityAward,
+  panel_id,
 ) {
   const { data, error } = await supabase
     .from("submissions") // Replace with your table name
@@ -29,7 +31,9 @@ export async function addRow(
         relevance: relevance,
         presentation: presentation,
         strategy: strategy,
-        strategy_box: strategyBox,
+        junior:junior,
+        creativity_award:creativityAward,
+        panel_id: panel_id,
       },
     ])
     .select();
